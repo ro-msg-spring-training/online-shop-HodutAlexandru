@@ -1,10 +1,13 @@
-package ro.msg.learning.shop.models;
+package ro.msg.learning.shop.models.entities;
 
 import lombok.Data;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -32,13 +35,21 @@ public class Location {
     private String street;
 
     @OneToMany(
-            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
             orphanRemoval = true
     )
-    private List<Order> orders;
+    private List<Stock> stocks;
+
+    @ManyToMany(
+            mappedBy = "locations",
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL
+    )
+    @Fetch(value = FetchMode.SELECT)
+    private Set<Order> orders;
 
     @OneToMany(
-            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
             orphanRemoval = true
     )
     private List<Revenue> revenues;

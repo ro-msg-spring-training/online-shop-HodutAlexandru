@@ -1,3 +1,7 @@
+server:
+  servlet:
+    context-path: /api
+
 spring:
   security:
     user:
@@ -14,3 +18,8 @@ spring:
     console:
       enabled: true
       path: /h2
+
+# Application config
+
+shop:
+  strategy: singleLocation

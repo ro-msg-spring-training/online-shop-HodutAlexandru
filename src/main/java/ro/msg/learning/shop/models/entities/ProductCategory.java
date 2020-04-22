@@ -1,4 +1,4 @@
-package ro.msg.learning.shop.models;
+package ro.msg.learning.shop.models.entities;
 
 import lombok.Data;
 
@@ -8,24 +8,25 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(name = "ORDER_DETAILS")
-public class OrderDetail {
+@Table(name = "PRODUCT_CATEGORIES")
+public class ProductCategory {
 
     @Id
     @GeneratedValue
     private int id;
 
-    @OneToOne
-    private Order order;
+    @Column
+    @NotNull
+    private String name;
+
+    @Column
+    @NotNull
+    private String description;
 
     @OneToMany(
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
     private List<Product> products;
-
-    @Column
-    @NotNull
-    private int quantity;
 
 }

@@ -1,6 +1,7 @@
-package ro.msg.learning.shop.models;
+package ro.msg.learning.shop.models.entities;
 
 import lombok.Data;
+import ro.msg.learning.shop.models.entities.Location;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -23,5 +24,8 @@ public class Revenue {
     @Column
     @NotNull
     private BigDecimal sum;
+
+    @ManyToOne
+    private Location location;
 
 }
