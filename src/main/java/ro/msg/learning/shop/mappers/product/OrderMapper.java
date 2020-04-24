@@ -11,9 +11,6 @@ public interface OrderMapper {
 
     OrderMapper INSTANCE = Mappers.getMapper(OrderMapper.class);
 
-    @Mapping(
-        source = "oid", target = "id"
-    )
     Order orderDtoToOrder(OrderDto orderDto);
 
 }
