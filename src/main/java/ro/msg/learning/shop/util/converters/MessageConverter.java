@@ -55,6 +55,16 @@ public class MessageConverter<T> extends AbstractGenericHttpMessageConverter<T> 
         return readInternal(aClass, httpInputMessage);
     }
 
+    @Override
+    public boolean canRead(Type type, Class<?> contextClass, MediaType mediaType) {
+        return (type instanceof Class ? canRead((Class<?>) type, mediaType) : canRead(mediaType));
+    }
+
+    @Override
+    public boolean canWrite(Type type, Class<?> clazz, MediaType mediaType) {
+        return super.canWrite(type, clazz, mediaType);
+    }
+
     public String getCsvData() {
         return csvData;
     }

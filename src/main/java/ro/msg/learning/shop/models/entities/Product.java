@@ -1,6 +1,7 @@
 package ro.msg.learning.shop.models.entities;
 
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -13,7 +14,6 @@ import java.util.List;
 public class Product {
 
     @Id
-    @GeneratedValue
     private int id;
 
     @Column
@@ -32,16 +32,39 @@ public class Product {
     @NotNull
     private double weight;
 
-    @ManyToOne
+    @ManyToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(
+            name = "category_id"
+    )
     private ProductCategory category;
 
-    @ManyToOne
+    @ManyToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(
+            name = "supplier_id"
+    )
     private Supplier supplier;
 
     @OneToMany(
-            fetch = FetchType.LAZY
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            mappedBy = "product",
+            orphanRemoval = true
     )
-    private List<Stock> stoks;
+    private List<Stock> stocks;
+
+    @OneToMany(
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            mappedBy = "product",
+            orphanRemoval = true
+    )
+    private List<OrderDetail> orderDetails;
 
     @Column
     private String imageUrl;

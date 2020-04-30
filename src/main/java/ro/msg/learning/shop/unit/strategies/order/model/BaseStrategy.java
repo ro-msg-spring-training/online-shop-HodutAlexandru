@@ -1,4 +1,4 @@
-package ro.msg.learning.shop.strategies.order.model;
+package ro.msg.learning.shop.unit.strategies.order.model;
 
 import ro.msg.learning.shop.exceptions.location.LocationNotFoundException;
 import ro.msg.learning.shop.models.ProductList;

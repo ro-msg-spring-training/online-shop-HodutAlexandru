@@ -1,6 +1,5 @@
 package ro.msg.learning.shop.models.entities;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -12,13 +11,25 @@ import javax.validation.constraints.NotNull;
 public class OrderDetail {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne
+    @ManyToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(
+            name = "order_id"
+    )
     private Order order;
 
-    @ManyToOne
+    @ManyToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(
+            name = "product_id"
+    )
     private Product product;
 
     @Column

@@ -14,10 +14,16 @@ import java.util.Set;
 public class Order {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne
+    @ManyToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(
+            name = "customer_id"
+    )
     private Customer customer;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -29,7 +35,10 @@ public class Order {
     private Set<Location> locations;
 
     @OneToMany(
-            fetch = FetchType.LAZY
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            mappedBy = "order",
+            orphanRemoval = true
     )
     private List<OrderDetail> orderDetails;
 

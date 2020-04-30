@@ -15,7 +15,7 @@ import java.util.Set;
 public class Location {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column
@@ -36,6 +36,8 @@ public class Location {
 
     @OneToMany(
             fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            mappedBy = "location",
             orphanRemoval = true
     )
     private List<Stock> stocks;
@@ -50,6 +52,8 @@ public class Location {
 
     @OneToMany(
             fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            mappedBy = "location",
             orphanRemoval = true
     )
     private List<Revenue> revenues;

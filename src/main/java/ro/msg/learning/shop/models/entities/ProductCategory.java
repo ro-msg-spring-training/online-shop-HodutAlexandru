@@ -12,7 +12,7 @@ import java.util.List;
 public class ProductCategory {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column
@@ -24,7 +24,9 @@ public class ProductCategory {
     private String description;
 
     @OneToMany(
+            fetch = FetchType.EAGER,
             cascade = CascadeType.ALL,
+            mappedBy = "category",
             orphanRemoval = true
     )
     private List<Product> products;

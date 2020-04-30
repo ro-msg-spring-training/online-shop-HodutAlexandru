@@ -1,8 +1,6 @@
 package ro.msg.learning.shop.models.entities;
 
 import lombok.Data;
-import ro.msg.learning.shop.models.entities.Location;
-import ro.msg.learning.shop.models.entities.Product;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -13,13 +11,25 @@ import javax.validation.constraints.NotNull;
 public class Stock {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne
+    @ManyToOne(
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(
+            name = "product_id"
+    )
     private Product product;
 
-    @ManyToOne
+    @ManyToOne(
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(
+            name = "location_id"
+    )
     private Location location;
 
     @Column

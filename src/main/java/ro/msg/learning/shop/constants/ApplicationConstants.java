@@ -37,6 +37,8 @@ public class ApplicationConstants {
     public static final String NO_LOCATION_FOUND_FOR_ORDER_PRODUCTS = "No location found with necessary stock!";
     public static final String NO_LOCATION_FOUND_FOR_THE_GIVEN_ID = "No location found for the given id!!";
     public static final String NO_AVAILABLE_STOCK_FOUND = "No stock found with necessary available quantity!";
+    public static final String NO_STOCKS_FOUND = "No stocks was found for the requested products!";
+    public static final String NO_STOCK_FOUND = "No stock was found for the requested id!";
     public static final String CSV_CONVERTER_EXPORT = "Cannot export data as csv file!";
 
     // Search fields

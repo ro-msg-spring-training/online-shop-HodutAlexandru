@@ -14,7 +14,7 @@ import java.time.LocalDate;
 public class Revenue {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column
@@ -25,7 +25,13 @@ public class Revenue {
     @NotNull
     private BigDecimal sum;
 
-    @ManyToOne
+    @ManyToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(
+            name = "location_id"
+    )
     private Location location;
 
 }

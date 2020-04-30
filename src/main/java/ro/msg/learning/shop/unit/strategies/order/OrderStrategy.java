@@ -1,4 +1,4 @@
-package ro.msg.learning.shop.strategies.order;
+package ro.msg.learning.shop.unit.strategies.order;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -6,8 +6,8 @@ import org.springframework.context.annotation.Configuration;
 import ro.msg.learning.shop.repositories.CustomLocationRepository;
 import ro.msg.learning.shop.repositories.LocationRepository;
 import ro.msg.learning.shop.repositories.StockRepository;
-import ro.msg.learning.shop.strategies.order.model.MostAbundant;
-import ro.msg.learning.shop.strategies.order.model.SingleLocation;
+import ro.msg.learning.shop.unit.strategies.order.model.MostAbundant;
+import ro.msg.learning.shop.unit.strategies.order.model.SingleLocation;
 
 @Configuration
 @RequiredArgsConstructor

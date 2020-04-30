@@ -4,8 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ro.msg.learning.shop.constants.ApplicationConstants;
 import ro.msg.learning.shop.exceptions.location.LocationNotFoundException;
-import ro.msg.learning.shop.models.StockCsv;
-import ro.msg.learning.shop.models.entities.Stock;
+import ro.msg.learning.shop.mappers.stock.StockCsvMapper;
+import ro.msg.learning.shop.models.dto.StockCsvDto;
 import ro.msg.learning.shop.repositories.LocationRepository;
 import ro.msg.learning.shop.util.converters.StockMessageConverter;
 
@@ -22,16 +22,13 @@ public class LocationBf {
     private final StockMessageConverter stockMessageConverter;
 
     public String exportStock(Integer locationId) throws IOException {
-        List<StockCsv> stocks = this.locationRepository.findById(locationId)
+        List<StockCsvDto> stocks = this.locationRepository.findById(locationId)
                 .orElseThrow(() -> new LocationNotFoundException(
                         ApplicationConstants.NO_LOCATION_FOUND_FOR_THE_GIVEN_ID
-                )).getStocks().stream().map(stock -> new StockCsv(
-                        stock.getId(),
-                        stock.getLocation().getName(),
-                        stock.getProduct().getName(),
-                        stock.getQuantity()
-        )).collect(Collectors.toList());
-        return this.stockMessageConverter.writeInternal(stocks, StockCsv.class);
+                )).getStocks().stream().map(stock ->
+                        StockCsvMapper.INSTANCE.stockToStockCsvDto(stock)
+                ).collect(Collectors.toList());
+        return this.stockMessageConverter.writeInternal(stocks, StockCsvDto.class);
     }
 
 }

@@ -1,0 +1,29 @@
+{
+  "timestamp": "2020/29/04",
+  "locations": [],
+  "productsWithQuantity": [{
+    "product": {
+      "id": 1,
+      "name": "First product",
+      "description": "This is the first product",
+      "price": "29.99"
+    },
+    "quantity": 2
+  }, {
+    "product": {
+      "id": "2",
+      "name": "Second product",
+      "description": "This is the second product",
+      "price": "60.10"
+    },
+    "quantity": 5
+  }, {
+    "product": {
+      "id": 3,
+      "name": "Third product",
+      "description": "This is the third product",
+      "price": "105.00"
+    },
+    "quantity": 10
+  }]
+}

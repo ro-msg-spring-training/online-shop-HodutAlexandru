@@ -3,10 +3,12 @@ package ro.msg.learning.shop.util.converters;
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
+import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.util.List;
 
+@Component
 public class CsvConverter<T> {
 
     private File uploadedFile;
@@ -14,6 +16,8 @@ public class CsvConverter<T> {
     public List<T> fromCsv(Class<T> tClass) throws IOException {
         CsvMapper mapper = new CsvMapper();
         CsvSchema schema = mapper.schemaFor(tClass);
+        schema = schema.withUseHeader(true);
+        schema = schema.withColumnSeparator('\t');
 
         MappingIterator<T> it = mapper.readerFor(tClass).with(schema)
                 .readValues(uploadedFile);

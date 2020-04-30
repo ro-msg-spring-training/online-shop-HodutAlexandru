@@ -1,0 +1,116 @@
+[{
+  "location": {
+    "name": "DE",
+    "country": "Germany",
+    "city": "Munich",
+    "street": "Strasse 1"
+  },
+  "product": {
+    "id": "1",
+    "name": "First product",
+    "description": "This is the first product",
+    "price": "29.99",
+    "weight": "5.00",
+    "category": {
+      "name": "Category 1 name",
+      "description": "Category 1 description"
+    },
+    "supplier": {
+      "name": "Supplier 1"
+    },
+    "imageUrl": "http://test.image1.com"
+  },
+  "quantity": "135"
+}, {
+  "location": {
+    "name": "AU",
+    "country": "Austria",
+    "city": "Salzburg",
+    "street": "Strasse 2"
+  },
+  "product": {
+    "id": 2,
+    "name": "Second product",
+    "description": "This is the second product",
+    "price": "60.10",
+    "weight": "10.00",
+    "category": {
+      "name": "Category 2 name",
+      "description": "Category 2 description"
+    },
+    "supplier": {
+      "name": "Supplier 2"
+    },
+    "imageUrl": "http://test.image2.com"
+  },
+  "quantity": "200"
+}, {
+  "location": {
+    "name": "AU",
+    "country": "Austria",
+    "city": "Wien",
+    "street": "Strasse 3"
+  },
+  "product": {
+    "id": 3,
+    "name": "Third product",
+    "description": "This is the third product",
+    "price": "105.00",
+    "weight": "15.00",
+    "category": {
+      "name": "Category 3 name",
+      "description": "Category 3 description"
+    },
+    "supplier": {
+      "name": "Supplier 3"
+    },
+    "imageUrl": "http://test.image3.com"
+  },
+  "quantity": "75"
+}, {
+  "location": {
+    "name": "RO",
+    "country": "Romania",
+    "city": "Bucuresti",
+    "street": "Strada 4"
+  },
+  "product": {
+    "id": 4,
+    "name": "4th product",
+    "description": "This is the 4th product",
+    "price": "79.99",
+    "weight": "12.35",
+    "category": {
+      "name": "Category 4 name",
+      "description": "Category 4 description"
+    },
+    "supplier": {
+      "name": "Supplier 4"
+    },
+    "imageUrl": "http://test.image4.com"
+  },
+  "quantity": "50"
+}, {
+  "location": {
+    "name": "RO",
+    "country": "Romania",
+    "city": "Timisoara",
+    "street": "Strada 5"
+  },
+  "product": {
+    "id": "5",
+    "name": "5th product",
+    "description": "This is the 5th product",
+    "price": "14.49",
+    "weight": "5.00",
+    "category": {
+      "name": "Category 5 name",
+      "description": "Category 5 description"
+    },
+    "supplier": {
+      "name": "Supplier 5"
+    },
+    "imageUrl": "http://test.image5.com"
+  },
+  "quantity": "20"
+}]

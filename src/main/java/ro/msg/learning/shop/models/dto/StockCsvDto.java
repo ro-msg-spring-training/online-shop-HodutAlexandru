@@ -1,11 +1,9 @@
-package ro.msg.learning.shop.models;
+package ro.msg.learning.shop.models.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
-public class StockCsv {
+public class StockCsvDto {
 
     private int stockId;
     private String location;
