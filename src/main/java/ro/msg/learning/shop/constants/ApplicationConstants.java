@@ -33,6 +33,7 @@ public class ApplicationConstants {
     public static final String ORDER_CREATE_FAIL = "Fail to create order!";
 
     // Exceptions
+    public static final String CUSTOMER_NOT_FOUND = "No customer found for provided username";
     public static final String PRODUCT_NOT_FOUND = "Searched product couldn't been found!";
     public static final String NO_LOCATION_FOUND_FOR_ORDER_PRODUCTS = "No location found with necessary stock!";
     public static final String NO_LOCATION_FOUND_FOR_THE_GIVEN_ID = "No location found for the given id!!";
