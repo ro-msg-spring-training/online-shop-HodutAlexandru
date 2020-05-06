@@ -22,10 +22,12 @@ import ro.msg.learning.shop.repositories.OrderRepository;
 import ro.msg.learning.shop.repositories.StockRepository;
 import ro.msg.learning.shop.unit.strategies.order.OrderStrategy;
 import ro.msg.learning.shop.unit.strategies.order.model.BaseStrategy;
+import ro.msg.learning.shop.unit.strategies.order.model.Greedy;
 import ro.msg.learning.shop.unit.strategies.order.model.MostAbundant;
 import ro.msg.learning.shop.unit.strategies.order.model.SingleLocation;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -47,6 +49,7 @@ public class OrderBf {
 
         ProductList productList = new ProductList();
         productList.setProducts(orderDto.getProductsWithQuantity());
+        productList.setDeliveryAddress(orderDto.getDeliveryAddress());
 
         this.strategy(productList).stream().forEach(orderDetail -> {
             newOrder.getOrderDetails().add(
@@ -68,9 +71,15 @@ public class OrderBf {
     }
 
     public List<ProductWithLocationAndQuantity> strategy(ProductList productList) {
-        BaseStrategy strategy = shopStrategy == StrategyType.SINGLE_LOCATION.getValue()
-                ? this.applicationContext.getBean(SingleLocation.class)
-                : this.applicationContext.getBean(MostAbundant.class);
+        BaseStrategy strategy = null;
+
+        if(shopStrategy == StrategyType.SINGLE_LOCATION.getValue()) {
+            strategy = this.applicationContext.getBean(SingleLocation.class);
+        } else if(shopStrategy == StrategyType.MOST_ABUNDANT.getValue()) {
+            strategy = this.applicationContext.getBean(MostAbundant.class);
+        } else if(shopStrategy == StrategyType.GREEDY.getValue()) {
+            strategy = this.applicationContext.getBean(Greedy.class);
+        }
 
         return this.updateStocks(strategy.getResults(productList));
     }

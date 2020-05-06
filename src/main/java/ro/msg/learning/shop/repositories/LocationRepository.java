@@ -7,4 +7,6 @@ import ro.msg.learning.shop.models.entities.Location;
 @Repository
 public interface LocationRepository extends JpaRepository<Location, Integer> {
 
+    public Location findByCity(String name);
+
 }

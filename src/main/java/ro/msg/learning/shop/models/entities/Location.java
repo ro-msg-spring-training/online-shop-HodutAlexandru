@@ -42,13 +42,22 @@ public class Location {
     )
     private List<Stock> stocks;
 
-    @ManyToMany(
-            mappedBy = "locations",
-            fetch = FetchType.EAGER,
+    @ManyToOne(
+            fetch = FetchType.LAZY,
             cascade = CascadeType.ALL
     )
-    @Fetch(value = FetchMode.SELECT)
-    private Set<Order> orders;
+    @JoinColumn(
+            name = "order_id"
+    )
+    private Order order;
+
+    @OneToMany(
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            mappedBy = "deliveryAddress",
+            orphanRemoval = true
+    )
+    private List<Order> orders;
 
     @OneToMany(
             fetch = FetchType.LAZY,

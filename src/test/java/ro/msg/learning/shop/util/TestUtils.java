@@ -213,48 +213,6 @@ public class TestUtils {
         return location;
     }
 
-    public static OrderDto getOrderDto() {
-        OrderDto orderDto = new OrderDto();
-        orderDto.setLocations(getDefaultLocations());
-        orderDto.setProductsWithQuantity(getProductList().getProducts());
-
-        return orderDto;
-    }
-
-    public static Order getNewlyCreatedOrder() {
-        Order newOrder = new Order();
-
-        Product product1 = new Product();
-        product1.setId(1);
-
-        Customer customer = new Customer();
-        customer.setId(1);
-
-        OrderDetail orderDetail1 = new OrderDetail();
-        orderDetail1.setId(1);
-        orderDetail1.setProduct(product1);
-        orderDetail1.setQuantity(5);
-
-        OrderDetail orderDetail2 = new OrderDetail();
-        orderDetail2.setId(2);
-        orderDetail2.setProduct(product1);
-        orderDetail2.setQuantity(7);
-
-        OrderDetail orderDetail3 = new OrderDetail();
-        orderDetail3.setId(3);
-        orderDetail3.setProduct(product1);
-        orderDetail3.setQuantity(8);
-
-        List<OrderDetail> orderDetails = Arrays.asList(orderDetail1, orderDetail2, orderDetail3);
-
-        newOrder.setId(1);
-        newOrder.setCustomer(customer);
-        newOrder.setLocations(getDefaultLocations());
-        newOrder.setOrderDetails(orderDetails);
-
-        return newOrder;
-    }
-
     public static Set<Location> getDefaultLocations() {
         Location location1 = new Location();
         location1.setId(1);

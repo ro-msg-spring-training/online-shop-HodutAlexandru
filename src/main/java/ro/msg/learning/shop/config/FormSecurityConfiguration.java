@@ -35,6 +35,9 @@ public class FormSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logout()
                 .logoutSuccessUrl("/home")
                 .permitAll();
+
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
     }
 
     @Override

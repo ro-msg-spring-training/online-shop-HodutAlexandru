@@ -26,13 +26,22 @@ public class Order {
     )
     private Customer customer;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "order_location",
-            joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "location_id"))
-    @Fetch(value = FetchMode.SELECT)
-    private Set<Location> locations;
+    @OneToMany(
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            mappedBy = "order",
+            orphanRemoval = true
+    )
+    private List<Location> shippedFrom;
+
+    @ManyToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(
+            name = "location_id"
+    )
+    private Location deliveryAddress;
 
     @OneToMany(
             fetch = FetchType.LAZY,

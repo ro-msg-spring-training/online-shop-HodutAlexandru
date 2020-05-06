@@ -36,6 +36,9 @@ public class BasicAuthSecurityConfiguration extends WebSecurityConfigurerAdapter
 
         http.addFilterAfter(new CustomFilter(),
                 BasicAuthenticationFilter.class);
+
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
     }
 
     @Override

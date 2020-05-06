@@ -3,7 +3,8 @@ package ro.msg.learning.shop.models.enums;
 public enum StrategyType {
 
     SINGLE_LOCATION("singleLocation"),
-    MOST_ABUNDANT("mostAbundant");
+    MOST_ABUNDANT("mostAbundant"),
+    GREEDY("greedy");
 
     private final String value;
 
