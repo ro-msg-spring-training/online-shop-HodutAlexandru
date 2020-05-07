@@ -5,6 +5,8 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
@@ -25,6 +27,10 @@ public class Order {
             name = "customer_id"
     )
     private Customer customer;
+
+    @Column
+    @NotNull
+    private LocalDateTime createdAt;
 
     @OneToMany(
             fetch = FetchType.LAZY,

@@ -9,6 +9,7 @@ public class ApplicationConstants {
 
     // Success
     public static final String SUCCESSFULLY_FETCHED_ALL_PRODUCTS = "Fetch products successfully!";
+    public static final String SUCCESSFULLY_FETCHED_REVENUES = "Successfully fetched revenues for specific date!";
     public static final String GET_PRODUCT_BY_ID_SUCCESS = "Successfully get product by id!";
     public static final String CREATE_PRODUCT_SUCCESS = "Successfully created new product!";
     public static final String UPDATE_PRODUCT_SUCCESS = "Successfully updated product!";
