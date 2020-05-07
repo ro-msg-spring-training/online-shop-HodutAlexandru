@@ -1,0 +1,4 @@
+location	product	quantity	stockId
+Location1	Product1	20	1
+Location1	Product1	30	2
+Location1	Product1	25	3

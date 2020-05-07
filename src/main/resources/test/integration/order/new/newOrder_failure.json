@@ -1,0 +1,12 @@
+{
+  "timestamp": "2020/29/04",
+  "locations": [],
+  "productsWithQuantity": [{
+    "product": {
+      "name": "First product",
+      "description": "This is the first product",
+      "price": "29.99"
+    },
+    "quantity": 201
+  }]
+}
